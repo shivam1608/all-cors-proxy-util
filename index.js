@@ -32,7 +32,7 @@ proxy.get("/hyperbeam" , async (req , res)=>{
         "accept" : "application/json",
     }
 
-    const response = await axios.post("https://engine.hyperbeam.com/v0/vm" , {headers});
+    const response = await axios.get("https://engine.hyperbeam.com/v0/vm" , {headers});
     
     res.set(response.headers);
     res.send(response.data);
@@ -44,7 +44,7 @@ proxy.delete("/hyperbeam/:session" , async (req , res)=>{
         "accept" : "application/json",
     }
     
-    const response = await axios.post(`https://engine.hyperbeam.com/v0/vm${req.params.session}` , {headers});
+    const response = await axios.delete(`https://engine.hyperbeam.com/v0/vm${req.params.session}` , {headers});
     
     res.set(response.headers);
     res.send(response.data);
