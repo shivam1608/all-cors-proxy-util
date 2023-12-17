@@ -44,7 +44,7 @@ proxy.get("/hyperbeam/:session" , async (req , res)=>{
         "accept" : "application/json",
     }
 
-    const response = await axios.get(`https://engine.hyperbeam.com/v0/vm/${session}` , {headers});
+    const response = await axios.get(`https://engine.hyperbeam.com/v0/vm/${req.params.session}` , {headers});
     
     res.set(response.headers);
     res.send(response.data);
