@@ -38,6 +38,18 @@ proxy.get("/hyperbeam" , async (req , res)=>{
     res.send(response.data);
 });
 
+proxy.get("/hyperbeam/:session" , async (req , res)=>{
+    const headers = {
+        "Authorization" : req.headers.authorization,
+        "accept" : "application/json",
+    }
+
+    const response = await axios.get(`https://engine.hyperbeam.com/v0/vm/${session}` , {headers});
+    
+    res.set(response.headers);
+    res.send(response.data);
+});
+
 proxy.delete("/hyperbeam/:session" , async (req , res)=>{
     const headers = {
         "Authorization" : req.headers.authorization,
