@@ -56,7 +56,7 @@ proxy.delete("/hyperbeam/:session" , async (req , res)=>{
         "accept" : "application/json",
     }
     
-    const response = await axios.delete(`https://engine.hyperbeam.com/v0/vm${req.params.session}` , {headers});
+    const response = await axios.delete(`https://engine.hyperbeam.com/v0/vm/${req.params.session}` , {headers});
     
     res.set(response.headers);
     res.send(response.data);
